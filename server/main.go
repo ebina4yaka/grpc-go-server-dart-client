@@ -6,7 +6,7 @@ import (
 	"net"
 	"os"
 
-	"github.com/ebina4yaka/grpc-go-server-dart-client/pokemon"
+	"github.com/ebina4yaka/grpc-pokemon-server/pokemon"
 	"google.golang.org/grpc"
 	_ "google.golang.org/grpc/encoding/gzip"
 )

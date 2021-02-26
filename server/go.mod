@@ -1,4 +1,4 @@
-module github.com/ebina4yaka/grpc-go-server-dart-client
+module github.com/ebina4yaka/grpc-pokemon-server
 
 go 1.16
 

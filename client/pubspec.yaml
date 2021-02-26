@@ -1,5 +1,5 @@
-name: pokemon
-description: Dart gRPC sample client and server.
+name: grpc.pokemon.client
+description: Dart gRPC sample client.
 publish_to: none
 
 environment:
