@@ -19,7 +19,7 @@ services:
 
   server:
     image: golang:1.16.0
-    command: go build
+    command: go mod tidy
     volumes:
       - type: bind
         source: ./server
