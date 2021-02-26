@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:grpc/grpc.dart';
-// ignore: import_of_legacy_library_into_null_safe
 import 'package:grpc.pokemon.client/src/generated/pokemon.pbgrpc.dart';
 
 void printPokemon(Pokemon pokemon) {
