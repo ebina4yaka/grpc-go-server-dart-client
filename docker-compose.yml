@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  proto:
+    build:
+      context: .
+      dockerfile: docker/proto/Dockerfile
+    command: ./protoc.sh
+    volumes:
+      - type: bind
+        source: ./proto
+        target: /proto
+      - type: bind
+        source: ./client
+        target: /output/client
+      - type: bind
+        source: ./server
+        target: /output/server
+
+  server:
+    image: golang:1.16.0
+    command: go build
+    volumes:
+      - type: bind
+        source: ./server
+        target: /go/src/app
+    working_dir: /go/src/app
+    stdin_open: true
+    environment:
+      - PORT=50051
+
+  client:
+    image: google/dart:2.12-beta
+    command: pub get
+    volumes:
+      - type: bind
+        source: ./client
+        target: /app
+    working_dir: /app
+    stdin_open: true
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=50051
+    depends_on:
+      - server
